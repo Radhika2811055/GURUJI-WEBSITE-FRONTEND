@@ -1,0 +1,101 @@
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(270deg, #f0caab, #f9fbe7, #cfd9df, #f3e7ff);
+  background-size: 1200% 1200%;
+  animation: gradientMove 24s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Light yellow balls */
+.balls-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.yellow-ball {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #e4c340 80%, #f3e8ff 100%);
+  opacity: 0.45;
+  filter: blur(1px);
+  transition: box-shadow 0.2s;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #da6319;
+  border-radius: 4px;
+}
+
+/* Hero background image */
+.hero-with-image {
+  position: relative;
+  overflow: hidden;
+  height: 58vh;
+  z-index: 0;
+}
+.hero-with-image::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('shantikunj_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px) brightness(0.8);
+  opacity: 1;
+  background-color: rgba(0,0,0,0.22);
+  mix-blend-mode: multiply;
+  z-index: -1;
+}
+
+/* Marquee */
+.marquee-wrap {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.85);
+  border-top: 1px solid rgba(229, 231, 235, 1);
+  border-bottom: 1px solid rgba(229, 231, 235, 1);
+}
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee-left 22s linear infinite;
+}
+.marquee-segment {
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  color: #f4e8a5;
+}
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+

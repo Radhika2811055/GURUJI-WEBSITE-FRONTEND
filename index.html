@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWGP - All World Gayatri Pariwar</title>
+  <link rel="icon" href="gayatri_logo.png" type="image/png">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- React and ReactDOM CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<script></script>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+  <style>
+    :root {
+      --primary-warm: #FFA500; /* Orange */
+      --primary-warm-dark: #FF8800;
+      --primary-warm-light: #FFE066;
+      --primary-warm-bg: #FFF8E1;
+      --primary-warm-hover: #FFD700; /* Gold */
+      --primary-warm-border: #FFB300;
+    }
+    /* Marquee warm background */
+    .marquee-wrap {
+      background: linear-gradient(90deg, #FFF8E1 0%, #FFE066 100%);
+    }
+    .marquee-segment {
+      color: #fb8907;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    // Replace all purple classes with warm color classes
+    document.addEventListener('DOMContentLoaded', function () {
+      // Utility to replace Tailwind purple classes with warm color classes
+      function replaceClassList(element, from, to) {
+        if (element.classList.contains(from)) {
+          element.classList.remove(from);
+          element.classList.add(to);
+        }
+      }
+      // Map of purple to warm color classes
+      const classMap = [
+        // bg
+        ['bg-purple-600', 'bg-orange-500'],
+        ['bg-purple-700', 'bg-orange-600'],
+        ['bg-purple-700/80', 'bg-orange-600/80'],
+        ['bg-purple-800/60', 'bg-orange-700/60'],
+        ['bg-purple-900/80', 'bg-orange-900/80'],
+        ['bg-purple-900', 'bg-yellow-900'],
+        ['bg-purple-500', 'bg-yellow-500'],
+        ['bg-purple-400', 'bg-yellow-400'],
+        ['bg-purple-300', 'bg-yellow-300'],
+        ['bg-purple-200', 'bg-yellow-200'],
+        ['bg-purple-100', 'bg-yellow-100'],
+        // text
+        ['text-purple-600', 'text-orange-600'],
+        ['text-purple-700', 'text-orange-700'],
+        ['text-purple-900', 'text-orange-900'],
+        ['text-purple-200', 'text-yellow-200'],
+        ['text-purple-100', 'text-yellow-100'],
+        ['text-purple-300', 'text-yellow-300'],
+        ['text-purple-400', 'text-yellow-400'],
+        ['text-purple-500', 'text-yellow-500'],
+        // border
+        ['border-purple-500', 'border-yellow-500'],
+        ['border-purple-400', 'border-yellow-400'],
+        // shadow
+        ['shadow-purple-400', 'shadow-yellow-400'],
+        // hover
+        ['hover:bg-purple-600', 'hover:bg-orange-500'],
+        ['hover:bg-purple-700', 'hover:bg-orange-600'],
+        ['hover:bg-purple-800/60', 'hover:bg-orange-700/60'],
+        ['hover:bg-purple-900/60', 'hover:bg-orange-900/60'],
+        ['hover:bg-purple-700/80', 'hover:bg-orange-600/80'],
+        ['hover:bg-purple-900/80', 'hover:bg-orange-900/80'],
+        ['hover:bg-purple-400', 'hover:bg-yellow-400'],
+        ['hover:text-purple-600', 'hover:text-orange-600'],
+        ['hover:text-purple-400', 'hover:text-yellow-600'],
+        // fill
+        ['fill-current', 'fill-current'], // keep as is
+        // misc
+        ['bg-purple-800', 'bg-orange-800'],
+        ['bg-purple-600', 'bg-orange-500'],
+        ['bg-purple-500', 'bg-yellow-500'],
+        ['bg-purple-100', 'bg-yellow-100'],
+        ['bg-purple-50', 'bg-yellow-50'],
+        ['text-purple-500', 'text-yellow-600'],
+        ['text-purple-800', 'text-orange-800'],
+        ['text-purple-600', 'text-orange-600'],
+        ['text-purple-700', 'text-orange-700'],
+        ['text-purple-900', 'text-orange-900'],
+        ['shadow-purple-400', 'shadow-yellow-400'],
+        ['hover:shadow-purple-400', 'hover:shadow-yellow-400'],
+        ['hover:border-purple-500', 'hover:border-yellow-500'],
+        ['hover:bg-purple-700', 'hover:bg-orange-600'],
+        ['hover:bg-purple-600', 'hover:bg-orange-500'],
+        ['hover:bg-purple-700/80', 'hover:bg-orange-600/80'],
+        ['hover:bg-purple-800/60', 'hover:bg-orange-700/60'],
+        ['hover:bg-purple-900/60', 'hover:bg-orange-900/60'],
+        ['hover:bg-purple-900/80', 'hover:bg-orange-900/80'],
+        ['hover:text-purple-600', 'hover:text-orange-600'],
+        ['hover:text-purple-400', 'hover:text-yellow-600'],
+        ['hover:text-purple-700', 'hover:text-orange-700'],
+        ['hover:text-purple-500', 'hover:text-yellow-600'],
+        ['hover:text-purple-400', 'hover:text-yellow-600'],
+        ['hover:text-purple-300', 'hover:text-yellow-400'],
+        ['hover:text-purple-200', 'hover:text-yellow-200'],
+        ['hover:text-purple-100', 'hover:text-yellow-100'],
+        ['hover:bg-purple-400', 'hover:bg-yellow-400'],
+        ['hover:bg-purple-500', 'hover:bg-yellow-500'],
+        ['hover:bg-purple-100', 'hover:bg-yellow-100'],
+        ['hover:bg-purple-50', 'hover:bg-yellow-50'],
+      ];
+      // Replace classes on all elements
+      document.querySelectorAll('*').forEach(el => {
+        classMap.forEach(([from, to]) => replaceClassList(el, from, to));
+      });
+      // Replace inline SVG color if any
+      document.querySelectorAll('svg').forEach(svg => {
+        if (svg.getAttribute('stroke') === 'currentColor') {
+          svg.setAttribute('stroke', '#FFA500');
+        }
+        if (svg.getAttribute('fill') === 'currentColor') {
+          svg.setAttribute('fill', '#FFA500');
+        }
+      });
+    });
+  </script>
+
+  <!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white shadow-sm p-6">
+  <div class="container mx-auto flex items-center justify-between px-0 relative">
+    <!-- Side Expandable Nav Logo (Extreme Left) -->
+    <button id="side-nav-logo" class="p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition duration-300 focus:outline-none order-1 -ml-4 mr-4" aria-label="Open side navigation">
+      <!-- Hamburger icon (3 lines) -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <!-- GayatriLogo (Next to Side Nav Logo) -->
+    <a href="#" class="flex items-center space-x-2 text-xl font-bold text-gray-900 order-2">
+      <img src="gayatri_logo.png" alt="Gayatri Logo" class="w-12 h-12 rounded-full" />
+      <div class="flex flex-col">
+        <span class="text-sm font-light text-gray-600">All World</span>
+        <span class="text-2xl font-bold text-purple-600 -mt-1">Gayatri Pariwar</span>
+      </div>
+    </a>
+
+    <!-- Spacer for Flex Grow -->
+    <div class="flex-1 order-3"></div>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center space-x-8 order-4">
+      <nav class="flex items-center space-x-8 text-sm font-medium">
+        <a href="#about" class="text-gray-600 hover:text-purple-600 transition duration-300 text-lg font-semibold" data-i18n="aboutLink">About</a>
+        <a href="#contact" class="text-gray-600 hover:text-purple-600 transition duration-300 text-lg font-semibold" data-i18n="contactLink">Contact</a>
+        <!-- <a href="#" class="bg-purple-600 text-white py-2 px-6 rounded-full font-semibold hover:bg-purple-700 transition duration-300" data-i18n="loginLink">Login</a>
+        <a href="#" class="bg-purple-500 text-white py-2 px-6 rounded-full font-semibold hover:bg-purple-600 transition duration-300" data-i18n="signupLink">Signup</a> -->
+        <!-- Login Button -->
+        <a href="login-signup.html#login" class="bg-purple-600 text-white py-2 px-6 rounded-full font-semibold hover:bg-purple-700 transition duration-300" data-i18n="loginLink">Login</a>
+
+        <!-- Signup Button -->
+        <a href="login-signup.html#signup" class="bg-purple-600 text-white py-2 px-6 rounded-full font-semibold hover:bg-purple-700 transition duration-300" data-i18n="signupLink">Signup</a>
+
+      </nav>
+      <div class="flex items-center space-x-4">
+        <select id="language-selector" class="p-2 border border-gray-300 rounded-md text-sm">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+      </div>
+      <!-- Google Translate Element (hidden) -->
+      <div id="google_translate_element" style="display:none;"></div>
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+          }, 'google_translate_element');
+        }
+
+        // Load Google Translate script
+        (function() {
+          var gt = document.createElement('script');
+          gt.type = 'text/javascript';
+          gt.async = true;
+          gt.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gt, s);
+        })();
+
+        // Language selector event
+        document.addEventListener('DOMContentLoaded', function () {
+          var selector = document.getElementById('language-selector');
+          selector.addEventListener('change', function () {
+        var lang = selector.value;
+        var frame = document.querySelector('iframe.goog-te-menu-frame');
+        if (lang === 'en') {
+          document.cookie = 'googtrans=/en/en;path=/';
+          location.reload();
+        } else if (lang === 'hi') {
+          if (frame) {
+            // If frame already loaded, trigger click
+            var hiOption = frame.contentDocument.querySelector('span.text:contains("Hindi")');
+            if (hiOption) hiOption.click();
+          } else {
+            // Fallback: set cookie and reload
+            document.cookie = 'googtrans=/en/hi;path=/';
+            location.reload();
+          }
+        }
+          });
+
+          // Set selector value based on current language
+          var googTrans = (document.cookie.match(/googtrans=\/en\/(\w+)/) || [])[1];
+          if (googTrans === 'hi') selector.value = 'hi';
+          else selector.value = 'en';
+        });
+      </script>
+    </div>
+
+    <!-- Mobile Menu Button (Right)  -->
+    <button id="menu-button" class="p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition duration-300 md:hidden order-5" aria-label="Open mobile menu">
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"> -->
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button> 
+    <div class="w-6 h-6 md:hidden order-6"></div>
+  </div>
+</header>
+<script>
+  // Side Nav Expandable Feature
+  document.addEventListener('DOMContentLoaded', function () {
+    const sideNavLogo = document.getElementById('side-nav-logo');
+    const sideNav = document.getElementById('side-nav');
+    const backdrop = document.getElementById('backdrop');
+    const closeButton = document.getElementById('close-button');
+
+    function openSideNav() {
+      sideNav.classList.remove('-translate-x-full');
+      backdrop.classList.remove('hidden');
+    }
+
+    function closeSideNav() {
+      sideNav.classList.add('-translate-x-full');
+      backdrop.classList.add('hidden');
+    }
+
+    sideNavLogo.addEventListener('click', openSideNav);
+    backdrop.addEventListener('click', closeSideNav);
+    if (closeButton) {
+      closeButton.addEventListener('click', closeSideNav);
+    }
+  });
+</script>
+
+
+  <!-- Side Navigation (Mobile & Desktop) -->
+  <div id="side-nav" class="fixed inset-y-0 left-0 z-50 w-72 bg-gradient-to-b from-yellow-100 via-orange-200 via-60% to-orange-600 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col rounded-r-2xl">
+    <div class="p-6 flex-1 flex flex-col overflow-y-auto">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-bold text-orange-900 tracking-wide" data-i18n="menuTitle">Menu</h2>
+        <button id="close-button" class="text-orange-400 hover:text-orange-700 transition duration-300 rounded-full p-1 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <nav class="flex flex-col space-y-4 text-lg font-medium">
+        <!-- Initiatives -->
+        <details class="group rounded-lg overflow-hidden">
+          <summary class="flex items-center justify-between py-2 px-4 rounded-lg cursor-pointer hover:bg-orange-200/80 transition duration-300">
+            <span class="text-orange-900" data-i18n="initiativesLink">Initiatives</span>
+            <svg class="h-5 w-5 transform group-open:rotate-90 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </summary>
+          <nav class="ml-4 mt-2 flex flex-col space-y-2 text-base text-orange-700">
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Spiritual</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Environment Protection</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Social Development</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Education with Wisdom</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Health</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Corporate Excellence</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Disaster Management</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Training/Shivir/Camps</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Research</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Programs / Events</a>
+          </nav>
+        </details>
+        <!-- Read -->
+        <details class="group rounded-lg overflow-hidden">
+          <summary class="flex items-center justify-between py-2 px-4 rounded-lg cursor-pointer hover:bg-orange-200/80 transition duration-300">
+            <span class="text-orange-900" data-i18n="readLink">Read</span>
+            <svg class="h-5 w-5 transform group-open:rotate-90 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </summary>
+          <nav class="ml-4 mt-2 flex flex-col space-y-2 text-base text-orange-700">
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Akhandjyoti Magazine</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">News</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">E-Books</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Events</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Gayatri Panchang</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Geeta Jayanti 2023</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Motivational Quotes</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Lecture Summery</a>
+            <!-- Buy Section -->
+            <details class="group rounded">
+              <summary class="flex items-center justify-between py-1 px-2 rounded-lg cursor-pointer hover:bg-orange-300/80 transition text-orange-800">
+                <span class="text-orange-900">Buy Section</span>
+                <svg class="h-4 w-4 transform group-open:rotate-90 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </summary>
+              <nav class="ml-4 mt-1 flex flex-col space-y-1 text-sm text-orange-600">
+                <a href="#" class="py-1 px-2 rounded hover:bg-orange-400/60 hover:text-orange-900 transition">Buy Books</a>
+                <a href="#" class="py-1 px-2 rounded hover:bg-orange-400/60 hover:text-orange-900 transition">Buy Magazine</a>
+                <a href="#" class="py-1 px-2 rounded hover:bg-orange-400/60 hover:text-orange-900 transition">Buy Panchang</a>
+              </nav>
+            </details>
+          </nav>
+        </details>
+        <!-- Media -->
+        <details class="group rounded-lg overflow-hidden">
+          <summary class="flex items-center justify-between py-2 px-4 rounded-lg cursor-pointer hover:bg-orange-200/80 transition duration-300">
+            <span class="text-orange-900" data-i18n="MediaLink">Media</span>
+            <svg class="h-5 w-5 transform group-open:rotate-90 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </summary>
+          <nav class="ml-4 mt-2 flex flex-col space-y-2 text-base text-orange-700">
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Social Media</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Video Gallery</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Audio Collection</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Photo Album</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Pragya Abhiyan</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Mobile Application</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Gurukulam</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">News & Activities</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Blog Posts</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Yug Pravah Video Magazine</a>
+          </nav>
+        </details>
+        <!-- Spiritual Wisdom -->
+        <details class="group rounded-lg overflow-hidden">
+          <summary class="flex items-center justify-between py-2 px-4 rounded-lg cursor-pointer hover:bg-orange-200/80 transition duration-300">
+            <span class="text-orange-900">Spiritual Wisdom</span>
+            <svg class="h-5 w-5 transform group-open:rotate-90 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </summary>
+          <nav class="ml-4 mt-2 grid grid-cols-1 gap-2 text-base text-orange-700">
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Thought Transformation</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Revival of Rishi Tradition</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Change of Era - Satyug</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Yagya</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Life Management</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Foundation of New Era</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Gayatri</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Indian Culture</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Scientific Spirituality</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Self Realization</a>
+            <a href="#" class="py-1 px-2 rounded hover:bg-orange-300/60 hover:text-orange-900 transition">Sacramental Rites</a>
+          </nav>
+        </details>
+      </nav>
+    </div>
+  </div>
+  <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+
+  <!-- Marquee -->
+  <div class="marquee-wrap w-full">
+      <div class="marquee-track">
+        <div class="marquee-segment" style="color: #dc2626;">ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥</div>
+        <div class="marquee-segment" style="color: #dc2626;">ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥</div>
+        <div class="marquee-segment" style="color: #dc2626;">ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥</div>
+        <div class="marquee-segment" style="color: #dc2626;">ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥</div>
+                <!-- duplicate for seamless loop -->
+        <div class="marquee-segment" style="color: #dc2626;">ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥</div>
+        <div class="marquee-segment" style="color: #dc2626;">ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥</div>
+        <div class="marquee-segment" style="color: #dc2626;">ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥</div>
+        <div class="marquee-segment" style="color: #dc2626;">ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥</div>
+        </div>
+    </div>
+
+
+  <!-- Text on Bg -->
+  <section class="w-full px-4 pt-8 pb-16 md:pt-10 md:pb-24 flex justify-center items-center text-center reveal hero-with-image">
+    <div>
+      <div class="mt-16"></div>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-2 group" id="jump-title">
+          <span>
+            GAYATRI PARIWAR
+          </span>
+        </h1>
+        <div class="h-3"></div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-6">Shantikunj, Haridwar</h2>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-red-600 leading-tight" data-i18n="heroTitle"></h1>
+        <p class="mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl font-bold text-red-700 max-w-2xl mx-auto" data-i18n="heroSubtitle"></p>
+        <div class="mt-8 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4"></div>
+          <a href="https://www.youtube.com/live/EiPbj4E9u74" target="_blank" class="bg-red-600 text-white py-3 px-8 rounded-full shadow-lg hover:bg-red-700 transition duration-300" data-i18n="liveButton">Live</a>
+          <button id="play-audio" type="button" class="bg-red-600 text-white py-3 px-8 rounded-full shadow-lg hover:bg-red-700 transition duration-300">Play Mantra</button>
+          <audio id="gayatri-audio" src="gayatri-mantra-raga-1.mp3"></audio>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- this script for adding mantra in button--> 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const playButton = document.getElementById('play-audio');
+      const audio = document.getElementById('gayatri-audio');
+      if (playButton && audio) {
+        playButton.addEventListener('click', function () {
+          audio.currentTime = 0;
+          audio.play();
+        });
+      }
+    });
+  </script>
+
+
+  <!-- Dev Pariwar -->
+  <section id="services" class="w-full px-4 py-16 reveal">
+    <div class="container mx-auto bg-white rounded-2xl shadow-2xl p-8 sm:p-16 group transition-all duration-300 hover:shadow-purple-400 hover:border-4 hover:border-purple-500 border-4  max-w-6xl mx-auto relative select-none text-center"
+      >
+      <h2 class="text-3xl md:text-4xl font-bold text-black mb-8 text-center">Dev Pariwar</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gray-50 rounded-xl shadow-md reveal transform hover:scale-105 transition duration-300 flex flex-col items-center">
+          <a href="patron_founder/page1.html">
+            <div class="w-full h-64 overflow-hidden rounded-t-xl flex items-center justify-center">
+              <img src="guruji_pic.jpg" class="w-full h-full object-cover object-center" />
+            </div>
+          </a>
+          <div class="py-6 text-lg font-semibold">पं. श्रीराम शर्मा आचार्य जी</div>
+        </div>
+        <div class="bg-gray-50 rounded-xl shadow-md reveal transform hover:scale-105 transition duration-300 flex flex-col items-center">
+          <a href="page2.html">
+            <div class="w-full h-64 overflow-hidden rounded-t-xl flex items-center justify-center">
+              <img src="Gayatri_maa.jpg" class="w-full h-full object-cover object-center rounded-t-xl" />
+            </div>
+          </a>
+          <div class="py-6 text-lg font-semibold">गायत्री माता</div>
+        </div>
+        <div class="bg-gray-50 rounded-xl shadow-md reveal transform hover:scale-105 transition duration-300 flex flex-col items-center">
+          <a href="page3.html"></a>
+        <div class="w-full h-64 overflow-hidden rounded-t-xl flex items-center justify-center">
+          <img src="mataji.png" class="w-full h-full object-cover object-center rounded-t-xl" />
+        </div>
+        </a>
+        <div class="py-6 text-lg font-semibold">माता भगवती देवी शर्मा</div>
+      </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  <!-- Add a slightly larger margin-top to increase the space -->
+  <div class="mt-12"></div>
+
+
+  <!-- Add a larger margin-top to increase the space between Dev Pariwar and Slider -->
+  <div class="mt-24"></div>
+
+    <!-- Slider -->
+    <div class="container mx-auto bg-white rounded-xl shadow-2xl p-6 sm:p-10 group transition-all duration-300 hover:shadow-purple-400 hover:border-4 hover:border-purple-500 max-w-5xl mx-auto mt-8 p-10 bg-white rounded-2xl shadow-2xl relative select-none">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-black-700 mb-2">Inspirational Quotes</h2>
+      <!-- Quotes container -->
+      <div id="quote-slider" class="relative h-64 md:h-80">
+        <!-- Each quote -->
+        <blockquote class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out text-center flex flex-col justify-center px-10 text-purple-900 text-2xl md:text-3xl font-semibold" aria-live="polite">
+          “Firmly believing in the Omnipresence of God and His Unfailing justice, we pledge to abide the essential disciplines of Divine principles (Dharma).”
+          <span class="block mt-4 text-lg font-normal text-purple-700">– Pt. Shri Ram Sharma Acharya</span>
+        </blockquote>
+        <blockquote class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out text-center flex flex-col justify-center px-10 text-purple-900 text-2xl md:text-3xl font-semibold" aria-live="polite">
+          “Regarding the body as the Temple of God, we will be ever watchful to keep it healthy and full of vitality by adopting the principles of self-restraint, order and harmony in our daily-lives.”
+          <span class="block mt-4 text-lg font-normal text-purple-700">– Pt. Shri Ram Sharma Acharya</span>
+        </blockquote>
+        <blockquote class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out text-center flex flex-col justify-center px-10 text-purple-900 text-2xl md:text-3xl font-semibold" aria-live="polite">
+          “With a view to keeping our minds free from the inrush of negative thoughts and emotions, we will adopt a regular program of study of ennobling and inspiring literature (swadhyaya) and of keeping the company of saints (satsang).”
+          <span class="block mt-4 text-lg font-normal text-purple-700">– Pt. Shri Ram Sharma Acharya</span>
+        </blockquote>
+        <blockquote class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out text-center flex flex-col justify-center px-10 text-purple-900 text-2xl md:text-3xl font-semibold" aria-live="polite">
+          “We will vigilantly exercise strict control over our senses, thoughts, emotions and in the spending of our time and resources.”
+          <span class="block mt-4 text-lg font-normal text-purple-700">– Pt. Shri Ram Sharma Acharya</span>
+        </blockquote>
+        <blockquote class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out text-center flex flex-col justify-center px-10 text-purple-900 text-2xl md:text-3xl font-semibold" aria-live="polite">
+          “We will consider ourselves inseparable parts of the society and will see our good in the good of all.”
+          <span class="block mt-4 text-lg font-normal text-purple-700">– Pt. Shri Ram Sharma Acharya</span>
+        </blockquote>
+      </div>
+      <!-- Navigation dots -->
+      <div id="quote-dots" class="flex justify-center space-x-3 mt-8">
+        <button class="w-4 h-4 rounded-full bg-purple-300 focus:outline-none" aria-label="Quote 1"></button>
+        <button class="w-4 h-4 rounded-full bg-purple-300 focus:outline-none" aria-label="Quote 2"></button>
+        <button class="w-4 h-4 rounded-full bg-purple-300 focus:outline-none" aria-label="Quote 3"></button>
+        <button class="w-4 h-4 rounded-full bg-purple-300 focus:outline-none" aria-label="Quote 4"></button>
+        <button class="w-4 h-4 rounded-full bg-purple-300 focus:outline-none" aria-label="Quote 5"></button>
+      </div>
+    </div>
+    <script>
+      (function() {
+        const quotes = document.querySelectorAll('#quote-slider blockquote');
+        const dots = document.querySelectorAll('#quote-dots button');
+        let current = 0;
+        const total = quotes.length;
+        const intervalTime = 6000; // 6 seconds
+        let timer;
+
+        function showQuote(index) {
+          quotes.forEach((q, i) => {
+            q.style.opacity = i === index ? '1' : '0';
+            q.style.pointerEvents = i === index ? 'auto' : 'none';
+          });
+          dots.forEach((d, i) => {
+            d.classList.toggle('bg-purple-600', i === index);
+            d.classList.toggle('bg-purple-300', i !== index);
+          });
+          current = index;
+        }
+
+        function nextQuote() {
+          let next = (current + 1) % total;
+          showQuote(next);
+        }
+
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', () => {
+            clearInterval(timer);
+            showQuote(i);
+            timer = setInterval(nextQuote, intervalTime);
+          });
+        });
+
+        // Initialize
+        showQuote(0);
+        timer = setInterval(nextQuote, intervalTime);
+      })();
+    </script>
+
+
+
+  <!-- About -->
+  <main class="flex-grow flex flex-col">
+    <!-- Reduced top padding and margin to bring About Us closer to Inspirational Quotes -->
+    <section id="about" class="w-full px-4 py-6 md:py-8 reveal"></section>
+      <div class="container mx-auto bg-white rounded-xl shadow-2xl p-8 sm:p-16 group transition-all duration-300 hover:shadow-purple-400 hover:border-4 hover:border-purple-500 max-w-6xl mx-auto relative select-none text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 cursor-pointer hover:text-purple-600 transition" data-i18n="aboutTitle" onclick="window.location.href='#'">About Us</h2>
+        <div class="flex justify-center"></div>
+        <p class="text-gray-600 mb-8 mx-auto max-w-3xl text-center text-lg md:text-xl" data-i18n="aboutText">Shantikunj, Haridwar is the spiritual headquarters of All World Gayatri Pariwar.<br>Founded by <b>Pt. Shriram Sharma Acharya</b>, it promotes value-based living and spiritual growth through the ideals of Gayatri Mantra and Yagya.</p>
+        <!-- Single line stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mt-8">
+          <div>
+            <span class="text-5xl font-bold text-purple-600" data-i18n="completedProjectsValue">15 Cr+</span>
+            <p class="text-gray-500 mt-4 text-lg" data-i18n="completedProjectsLabel">Members</p>
+          </div>
+          <div>
+            <span class="text-5xl font-bold text-purple-600" data-i18n="satisfactionValue">3500+</span>
+            <p class="text-gray-500 mt-4 text-lg" data-i18n="satisfactionLabel">Centers</p>
+          </div>
+          <div>
+            <span class="text-5xl font-bold text-purple-600" data-i18n="experienceValue">1.5 Lc+</span>
+            <p class="text-gray-500 mt-4 text-lg" data-i18n="experienceLabel">Volunteers</p>
+          </div>
+          <div>
+            <span class="text-5xl font-bold text-purple-600" data-i18n="clientsValue">100+</span>
+            <p class="text-gray-500 mt-4 text-lg" data-i18n="clientsLabel">Activities and Programs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mission & Vision -->
+  <section id="mission-vision" class="w-full px-2 md:px-0 py-8 md:py-10 reveal mt-[-56px]"></section>
+    <div class="container mx-auto bg-white rounded-xl shadow-2xl p-6 sm:p-10 group transition-all duration-300 hover:shadow-purple-400 hover:border-4 hover:border-purple-500 max-w-7xl mx-auto relative select-none text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <a href="/mission-vision/mission-vision.html" class="hover:text-purple-600 transition-colors duration-200">
+          Our Mission & Vision
+        </a>
+      </h2>
+      <p class="text-gray-600 mb-6 mx-auto max-w-2xl text-center">
+        Gayatri Pariwar envisions a world guided by unity, equality, and the spirit of Vasudhaiva Kutumbakam—“the whole world is one family.” It strives for individual and social transformation through divinity in human life. Our mission is to foster self-growth, harmony, and service, leading to a healthy body, pure mind, and a civilized, compassionate society.
+      </p>
+      <!-- 3 Highlights -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 shadow-md rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <h3 class="text-xl font-semibold mb-2">Origin of Mission</h3>
+          <p class="text-gray-600">Establishing Tapobhumi, Initiating Yug Nirman Yojna.</p>
+        </div>
+        <div class="bg-gray-50 shadow-md rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <h3 class="text-xl font-semibold mb-2">History and Achievements</h3>
+          <p class="text-gray-600">Pandit Shriram Sharma Acharya founded Gayatri Tapobhumi (1953) and launched Yug Nirman Yojna (1958)</p>
+        </div>
+        <div class="bg-gray-50 shadow-md rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <h3 class="text-xl font-semibold mb-2">Vichar Kranti Abhiyaan</h3>
+          <p class="text-gray-600">Promoting peace and unity through shared values and collective growth.</p>
+        </div>
+      </div>
+      <!-- Read More Button -->
+      <div class="mt-10">
+        <a href="/mission-vision/mission-vision.html" 
+           class="bg-purple-600 text-white py-3 px-8 rounded-full shadow-lg hover:bg-purple-700 transition duration-300">
+          Read More
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+<footer class="bg-purple-800 text-gray-100 pt-12 pb-8 w-full mt-16 flex-shrink-0">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-10">
+      <!-- Navigation Links -->
+      <div>
+        <h3 class="text-lg font-bold mb-6 text-white tracking-wide">NAVIGATION LINKS</h3>
+        <ul class="space-y-3 text-gray-300">
+          <li>
+            <a href="#" class="hover:text-purple-400 flex items-center transition-colors duration-300">
+              <span class="mr-3 text-purple-500 text-xl leading-none">•</span>Home
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-purple-400 flex items-center transition-colors duration-300">
+              <span class="mr-3 text-purple-500 text-xl leading-none">•</span>Literature
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-purple-400 flex items-center transition-colors duration-300">
+              <span class="mr-3 text-purple-500 text-xl leading-none">•</span>News and Activities
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-purple-400 flex items-center transition-colors duration-300">
+              <span class="mr-3 text-purple-500 text-xl leading-none">•</span>Quotes and Thoughts
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- More Links -->
+      <div>
+        <h3 class="text-lg font-bold mb-6 text-white tracking-wide">MORE LINKS</h3>
+        <ul class="space-y-3 text-gray-300">
+          <li>
+            <a href="#" class="hover:text-purple-400 flex items-center transition-colors duration-300">
+              <span class="mr-3 text-purple-500 text-xl leading-none">•</span>Videos and More
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-purple-400 flex items-center transition-colors duration-300">
+              <span class="mr-3 text-purple-500 text-xl leading-none">•</span>Audio
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-purple-400 flex items-center transition-colors duration-300">
+              <span class="mr-3 text-purple-500 text-xl leading-none">•</span>Join Us
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-purple-400 flex items-center transition-colors duration-300">
+              <span class="mr-3 text-purple-500 text-xl leading-none">•</span>Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Write to Us -->
+      <div>
+        <h3 class="text-lg font-bold mb-6 text-white tracking-wide">WRITE TO US</h3>
+        <p class="mb-4 text-gray-300 max-w-sm">
+          Click below and write to us your comment and input.
+        </p>
+        <a href="#" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300 shadow-md">
+          Write Now
+        </a>
+
+        <!-- Optional: Social Icons -->
+        <div class="mt-10 flex space-x-6">
+          <a href="#" aria-label="Facebook" class="text-gray-300 hover:text-purple-400 transition-colors duration-300">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2c0-2 1-3 3-3h2v3h-2c-.5 0-1 .5-1 1v2h3l-.5 3h-2.5v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="https://x.com/awgpofficial" aria-label="Twitter" class="text-gray-300 hover:text-purple-400 transition-colors duration-300">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14.86 4.48 4.48 0 0 0 2-2.48 9.14 9.14 0 0 1-2.88 1.1 4.52 4.52 0 0 0-7.7 4.12A12.8 12.8 0 0 1 1.64 2.16a4.52 4.52 0 0 0 1.4 6.04 4.48 4.48 0 0 1-2.05-.57v.06a4.52 4.52 0 0 0 3.63 4.43 4.52 4.52 0 0 1-2.04.08 4.52 4.52 0 0 0 4.22 3.14A9 9 0 0 1 1 19.54a12.7 12.7 0 0 0 6.92 2"/></svg>
+          </a>
+          <a href="https://www.instagram.com/awgpofficial/" aria-label="Instagram" class="text-gray-300 hover:text-purple-400 transition-colors duration-300">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-5 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-700 my-6"></div>
+
+    <div class="flex flex-col md:flex-row md:justify-between items-center text-xs text-gray-400">
+      <div class="mb-2 md:mb-0 text-center md:text-left">
+        &copy; SRI VEDMATA GAYATRI TRUST (TMD). All rights reserved.
+      </div>
+      <div class="text-center md:text-right">
+        Design by <a href="https://www.awgp.org/about_us/itcell" class="text-blue-400 hover:underline" target="_blank" rel="noopener">IT Cell Shantikunj</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>

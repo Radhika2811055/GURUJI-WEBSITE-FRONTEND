@@ -1,0 +1,138 @@
+<!-- Chatbot Icon -->
+<div id="chatbot-icon">💬</div>
+
+<!-- Chat Window -->
+<div id="chatbot-window">
+  <div id="chat-header">Shantikunj Bot <span id="close-btn">✖</span></div>
+  <div id="chat-body">
+    <div class="bot-msg">🙏 Namaste! How can I help you today?</div>
+  </div>
+  <div id="chat-footer">
+    <input type="text" id="user-input" placeholder="Type your question..." />
+    <button id="send-btn">➤</button>
+  </div>
+</div>
+
+<style>
+/* Floating Chatbot Icon */
+#chatbot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff9800;
+  color: white;
+  font-size: 24px;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Chat Window */
+#chatbot-window {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 320px;
+  height: 400px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+}
+
+#chat-header {
+  background: #ff9800;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#chat-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.bot-msg, .user-msg {
+  margin: 6px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.bot-msg {
+  background: #f1f1f1;
+  align-self: flex-start;
+}
+
+.user-msg {
+  background: #ff9800;
+  color: white;
+  align-self: flex-end;
+}
+
+#chat-footer {
+  display: flex;
+  padding: 8px;
+  border-top: 1px solid #ddd;
+}
+
+#user-input {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+#send-btn {
+  margin-left: 6px;
+  padding: 6px 12px;
+  background: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+</style>
+
+<script>
+// Toggle Chat Window
+const chatIcon = document.getElementById("chatbot-icon");
+const chatWindow = document.getElementById("chatbot-window");
+const closeBtn = document.getElementById("close-btn");
+
+chatIcon.onclick = () => chatWindow.style.display = "flex";
+closeBtn.onclick = () => chatWindow.style.display = "none";
+
+// Handle Messages
+const sendBtn = document.getElementById("send-btn");
+const userInput = document.getElementById("user-input");
+const chatBody = document.getElementById("chat-body");
+
+function addMessage(text, sender) {
+  const msg = document.createElement("div");
+  msg.className = sender === "user" ? "user-msg" : "bot-msg";
+  msg.textContent = text;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+sendBtn.onclick = () => {
+  const text = userInput.value.trim();
+  if (text !== "") {
+    addMessage(text, "user");
+    userInput.value = "";
+
+    // Basic Bot Reply (You can replace with AI / backend)
+    setTimeout(() => {
+      addMessage("🙏 I will connect you with Shantikunj guidance soon!", "bot");
+    }, 1000);
+  }
+};
+</script>
