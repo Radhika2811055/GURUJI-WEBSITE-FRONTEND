@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vedmurthy Taponishtha Pt. Sriram Sharma Acharya — A Visionary</title>
+  <meta name="description" content="A tribute page for Pandit Shriram Sharma Acharya (Gurudev) with biography, timeline, and gallery." />
+  <meta name="keywords" content="Pt. Sriram Sharma Acharya, Gayatri Pariwar, Shantikunj, spiritual leader, Yug Nirman, Vedmurthy Taponishtha" />
+  <meta property="og:title" content="Vedmurthy Taponishtha Pt. Sriram Sharma Acharya — A Visionary" />
+  <meta property="og:description" content="Discover the life and legacy of Gurudev, founder of Gayatri Pariwar." />
+  <meta property="og:image" content="images/guruji-1.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Georgia:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Refined theme with improved warmth, contrast, and serenity */
+    html, body { height: 100%; }
+    body {
+      background: linear-gradient(135deg, #fffaf0 0%, #fdf6e3 40%, #fff8dc 100%);
+      color: #5d4a2e;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #fef5e7 0%, #fff3cd 50%, #ffeaa7 100%);
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-gradient::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 20% 80%, rgba(255, 193, 7, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .content-card {
+      background: rgba(255, 248, 220, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 193, 7, 0.25);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    .highlight-card {
+      background: linear-gradient(145deg, rgba(255, 245, 157, 0.98), rgba(255, 193, 7, 0.12));
+      border: 1px solid rgba(255, 193, 7, 0.2);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .highlight-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.6s;
+    }
+    .highlight-card:hover::before { left: 100%; }
+    .highlight-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(255, 193, 7, 0.25);
+    }
+
+    /* Typography: Elegant and readable */
+    .compact-p {
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: justify;
+      hyphens: auto;
+    }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; letter-spacing: -0.025em; }
+    h1 { font-weight: 700; }
+
+    /* Background particles for subtle spiritual ambiance */
+    .particles {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .particle {
+      position: absolute;
+    width: 60px; height: 60px;
+    background: rgba(245, 158, 11, 0.82);
+    border-radius: 50%;
+    animation: float 20s linear infinite;
+    box-shadow: 0 0 32px 12px rgba(245, 158, 11, 0.32);
+    }
+    @keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+
+    /* Enhanced mandala with layered animation */
+    .mandala {
+      position: fixed;
+      right: -120px;
+      top: -100px;
+      opacity: 0.05;
+      transform: rotate(15deg) scale(1.2);
+      z-index: -1;
+      animation: gentleRotate 25s linear infinite, subtleFloat 6s ease-in-out infinite alternate;
+    }
+    @keyframes gentleRotate {
+      from { transform: rotate(0deg) scale(1.2); }
+      to { transform: rotate(360deg) scale(1.2); }
+    }
+    @keyframes subtleFloat {
+      from { transform: rotate(15deg) scale(1.2) translateY(0px); }
+      to { transform: rotate(15deg) scale(1.2) translateY(-10px); }
+    }
+
+    /* Advanced tab transitions */
+    .tab-enter {
+      opacity: 0;
+      transform: translateY(15px) scale(0.97);
+    }
+    .tab-enter-active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      transition: all 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .tab-exit { opacity: 1; transform: scale(1); }
+    .tab-exit-active {
+      opacity: 0;
+      transform: scale(0.97);
+      transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Image enhancements */
+    .img-zoom {
+      transition: all 500ms cubic-bezier(0.25, 0.8, 0.25, 1);
+      filter: brightness(1.02) contrast(1.08);
+      cursor: pointer;
+    }
+    .img-zoom:hover {
+      transform: scale(1.06);
+      filter: brightness(1.12) contrast(1.18) saturate(1.08);
+      box-shadow: 0 12px 40px rgba(255, 193, 7, 0.35);
+    }
+
+    /* Carousel with indicators and captions */
+    .carousel-track {
+      transition: transform 800ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .carousel-indicator {
+      background: rgba(255, 193, 7, 0.6);
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+    .carousel-indicator.active {
+      background: #f59e0b;
+      transform: scale(1.3);
+      box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+    }
+    .carousel-caption {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .carousel-item:hover .carousel-caption { opacity: 1; }
+
+    /* Modal enhancements */
+    .modal {
+      backdrop-filter: blur(8px);
+    }
+    .modal-body {
+      max-height: 70vh;
+      overflow: auto;
+      font-family: 'Georgia', serif;
+      line-height: 1.7;
+    }
+    .modal-body::-webkit-scrollbar { width: 8px; }
+    .modal-body::-webkit-scrollbar-track {
+      background: rgba(255, 248, 220, 0.6);
+      border-radius: 10px;
+    }
+    .modal-body::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #f59e0b, #fbbf24);
+      border-radius: 10px;
+    }
+    .modal-body p:first-child::first-letter {
+      font-size: 3rem;
+      float: left;
+      line-height: 1;
+      margin: 0.2em 0.1em 0 0;
+      font-weight: bold;
+      color: #f59e0b;
+    }
+
+    /* Button refinements with ripple */
+    button, a[href] {
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    button::after, a[href]::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 0; height: 0;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    button:active::after, a[href]:active::after {
+      width: 300px; height: 300px;
+    }
+    button:hover, a[href]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #92400e;
+    }
+    .btn-secondary {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #92400e;
+    }
+
+    /* Page entrance with stagger */
+    @keyframes pageFadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-content {
+      animation: pageFadeIn 1.2s ease-out both;
+    }
+    .stagger-children > * {
+      opacity: 0;
+      animation: pageFadeIn 0.8s ease-out forwards;
+    }
+    .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+    .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+
+    /* Enhanced timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.75rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, #f59e0b, transparent);
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.25rem;
+      top: 0.25rem;
+      width: 12px;
+      height: 12px;
+      background: #f59e0b;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px white;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+    .timeline-item:hover::before { transform: scale(1.2); }
+    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      .compact-p { font-size: 0.95rem; max-height: none; }
+      .content-card { height: 85vh !important; padding: 1rem !important; }
+      .mandala { right: -200px; top: -150px; transform: rotate(15deg) scale(0.8); }
+      .timeline::before { left: 0.5rem; }
+      .timeline-item::before { left: -1.75rem; }
+      button, a[href] { font-size: 0.875rem; padding: 0.75rem 1rem; }
+      h1 { font-size: 2.5rem !important; }
+    }
+
+    /* Accessibility */
+    *:focus-visible { outline: 2px solid #f59e0b; outline-offset: 2px; border-radius: 4px; }
+  </style>
+</head>
+<body class="page-content">
+  <!-- Background particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Enhanced mandala SVG -->
+  <svg class="mandala" width="700" height="700" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="mandalaGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#fef3c7" />
+        <stop offset="70%" stop-color="#f8e6b0" stop-opacity="0.6" />
+        <stop offset="100%" stop-color="#f8e6b0" stop-opacity="0.2" />
+      </radialGradient>
+      <pattern id="mandalaPattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+        <circle cx="25" cy="25" r="5" fill="#f8e6b0" opacity="0.3" />
+      </pattern>
+    </defs>
+    <circle cx="350" cy="350" r="280" stroke="url(#mandalaGrad)" stroke-width="8" fill="url(#mandalaPattern)" />
+    <g stroke="#f8e6b0" stroke-opacity="0.7" stroke-width="4" stroke-linecap="round">
+      <circle cx="350" cy="350" r="220" />
+      <circle cx="350" cy="350" r="160" />
+      <circle cx="350" cy="350" r="100" />
+      <line x1="350" y1="70" x2="350" y2="630" stroke-dasharray="8,8" />
+      <line x1="70" y1="350" x2="630" y2="350" stroke-dasharray="8,8" />
+      <line x1="200" y1="200" x2="500" y2="500" stroke-dasharray="5,5" />
+      <line x1="200" y1="500" x2="500" y2="200" stroke-dasharray="5,5" />
+    </g>
+  </svg>
+
+  <div class="max-w-7xl mx-auto h-screen grid grid-cols-1 lg:grid-cols-12 gap-6 items-center px-6">
+
+    <!-- Left column: portrait + title -->
+    <div class="lg:col-span-4 col-span-1 flex flex-col items-center lg:items-start gap-6">
+    <div class="w-64 h-64 rounded-full shadow-lg overflow-hidden ring-4 ring-black animate-fade-in" style="animation: fadeIn .9s ease both;">
+      <img src="guruji.jpg" alt="Pt. Sriram Sharma Acharya" class="w-full h-full object-cover img-zoom" />
+    </div>
+
+      <div class="text-center lg:text-left">
+        <h1 class="text-3xl lg:text-4xl font-extrabold text-yellow-900 leading-tight">Vedmurthy Taponishtha<br/><span class="text-2xl block">Pt. Sriram Sharma Acharya</span></h1>
+        <p class="mt-2 text-yellow-800 font-medium">A Visionary of Bright Future — <span class="italic">Patron Founder</span></p>
+        <p class="mt-1 text-sm text-yellow-700">(Born: Sept 20, 1911 — Passed: June 2, 1990)</p>
+      </div>
+
+      <div class="mt-4 w-full lg:w-72 text-center lg:text-left">
+        <button id="btnAbout" class="w-full py-2 rounded-xl shadow hover:shadow-md transition transform hover:-translate-y-1 btn-primary font-semibold">About</button>
+        <div class="mt-3 grid grid-cols-2 gap-2">
+          <button id="btnTimeline" class="py-2 rounded-xl shadow hover:shadow-md transition btn-secondary font-medium">Timeline</button>
+          <button id="btnGallery" class="py-2 rounded-xl shadow hover:shadow-md transition btn-secondary font-medium">Gallery</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right column: compact content card (tabs) -->
+    <div class="lg:col-span-8 col-span-1">
+    <div class="content-card p-6 rounded-3xl shadow-xl h-[78vh] flex flex-col overflow-y-auto transition-all duration-400 hover:border-yellow-400 hover:scale-105 hover:shadow-yellow-400 hover:shadow-lg hover:border-2" style="border: 1.5px solid rgba(255, 193, 7, 0.25);">
+        <!-- tabs header -->
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-yellow-500 animate-pulse"></div>
+                <h2 id="tabTitle" class="text-xl font-semibold text-yellow-900">About Gurudev</h2>
+            </div>
+            <div class="flex items-center gap-2">
+                <button id="expandBtn" class="text-sm px-3 py-1 rounded-lg bg-yellow-100 text-yellow-900 hover:bg-yellow-200 transition">View Full</button>
+                <button id="playCarousel" class="text-sm px-3 py-1 rounded-lg bg-yellow-100 text-yellow-900 hover:bg-yellow-200 transition">Play Gallery</button>
+            </div>
+        </div>
+
+        <!-- content area (no outer scroll) -->
+        <div id="tabContent" class="flex-1 overflow-visible relative">
+
+          <!-- ABOUT (default) -->
+        <div data-tab="about" class="absolute inset-0 p-4 transition-transform overflow-auto bg-yellow-50 rounded-2xl flex flex-col justify-start" style="padding-top: 3.5rem;">
+            <p class="compact-p text-yellow-900 mb-6">
+            In the long, slow, meandering march of human consciousness and civilisation, Pandit Shriram Sharma Acharya emerged as a sage‑scholar who raised human thought to a nobler plane. Born in 1911 in Anwalkheda, he undertook intense tapasya, completed 24 Mahapurushcharans of Gayatri Mahamantra at a very young age, and actively joined India's freedom movement. He founded Gayatri Pariwar, Shantikunj and authored thousands of books to guide spiritual and social upliftment.
+            </p>
+            
+            <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="stat-card p-4 rounded-lg highlight-card shadow-sm flex items-center gap-4 h-20">
+                <div class="stat-num text-2xl font-bold text-yellow-900">2400+</div>
+                <div class="stat-text text-sm text-yellow-800">Books authored</div>
+            </div>
+            <div class="stat-card p-4 rounded-lg highlight-card shadow-sm flex items-center gap-4 h-20">
+                <div class="stat-num text-2xl font-bold text-yellow-900">100</div>
+                <div class="stat-text text-sm text-yellow-800">Yug Nirman Points</div>
+            </div>
+            <div class="stat-card p-4 rounded-lg highlight-card shadow-sm flex items-center gap-4 h-20">
+                <div class="stat-num text-2xl font-bold text-yellow-900">41</div>
+                <div class="stat-text text-sm text-yellow-800">Ashwamedh Yagyas</div>
+            </div>
+            <div class="stat-card p-4 rounded-lg highlight-card shadow-sm flex items-center gap-4 h-20">
+                <div class="stat-num text-2xl font-bold text-yellow-900">Global</div>
+                <div class="stat-text text-sm text-yellow-800">Institutions &amp; Centres</div>
+            </div>
+            </div>
+
+            <div class="mt-5 flex flex-wrap items-center gap-3">
+            <button id="readMoreBtn" class="px-5 py-2 rounded-lg btn-primary text-white font-medium shadow hover:scale-105 transition">Read More</button>
+            
+            </div>
+        </div>
+        </div>
+
+          <!-- TIMELINE -->
+        <div data-tab="timeline" class="absolute inset-0 p-3 hidden flex flex-col" style="padding-top: 3.5rem;">
+            <div class="timeline text-yellow-900 modal-body pr-2" style="margin-left: 3.5rem; margin-top: 1.5rem;"></div>
+            <div class="timeline-item">
+                <strong>1911</strong> — Born in Anwalkheda, Agra district, Uttar Pradesh.
+            </div>
+            <div class="timeline-item">
+                <strong>1926</strong> — Completed 24 Mahapurushcharans of Gayatri Mahamantra at age 15, under guidance of his Himalayan Guru.
+            </div>
+            <div class="timeline-item">
+                <strong>1930s–1940s</strong> — Actively participated in India's freedom movement; imprisoned several times for non-violent activism.
+            </div>
+            <div class="timeline-item">
+                <strong>1953</strong> — Founded Gayatri Tapobhumi, Mathura; initiated Yug Nirman Yojna for social transformation.
+            </div>
+            <div class="timeline-item">
+                <strong>1971</strong> — Established Shantikunj, Haridwar as the headquarters of All World Gayatri Pariwar.
+            </div>
+            <div class="timeline-item">
+                <strong>1979</strong> — Founded Brahmavarchas Research Institute to bridge science and spirituality.
+            </div>
+            <div class="timeline-item">
+                <strong>1980s</strong> — Conducted 41 Ashwamedh Yagyas across India and abroad; authored thousands of books.
+            </div>
+            <div class="timeline-item">
+                <strong>1990 (June 2)</strong> — Attained Mahasamadhi (left physical body) on Gayatri Jayanti; mission expanded globally.
+            </div>
+            </div>
+        </div>
+        <div data-tab="gallery" class="absolute inset-0 p-3 hidden flex flex-col items-center justify-center">
+            <div class="w-full h-64 relative overflow-hidden rounded-xl shadow-lg flex items-center justify-center">
+                <div id="carouselTrack" class="carousel-track flex h-full w-full transition-transform duration-700" style="position: relative;">
+                    <div class="w-full h-full flex-shrink-0 carousel-item relative"><img src="guruji-And-Mataji.jpg" class="w-full h-full object-cover img-zoom" /><div class="carousel-caption">Gurudev — Portrait</div></div>
+                    <div class="w-full h-full flex-shrink-0 carousel-item relative"><img src="images/guruji-2.jpg" class="w-full h-full object-cover img-zoom" /><div class="carousel-caption">At Shantikunj</div></div>
+                    <div class="w-full h-full flex-shrink-0 carousel-item relative"><img src="images/guruji-3.jpg" class="w-full h-full object-cover img-zoom" /><div class="carousel-caption">With disciples</div></div>
+                    <div class="w-full h-full flex-shrink-0 carousel-item relative"><img src="images/guruji-4.jpg" class="w-full h-full object-cover img-zoom" /><div class="carousel-caption">Yagya ceremony</div></div>
+                </div>
+            </div>
+            <div class="mt-3 flex items-center gap-3">
+              <button id="prev" class="px-3 py-1 rounded bg-yellow-100">Prev</button>
+              <div id="indicators" class="flex gap-2"></div>
+              <button id="next" class="px-3 py-1 rounded bg-yellow-100">Next</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+  <!-- Modal for full content -->
+   <!-- guruji history -->
+  <div id="modal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 modal">
+    <div class="bg-white rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden animate-scale-up">
+      <div class="flex items-center justify-between p-4 border-b">
+        <h3 class="text-lg font-semibold text-yellow-900">Full Biography - Pandit Shriram Sharma Acharya</h3>
+        <button class="px-3 py-1 rounded bg-yellow-100" onclick="closeModal()">Close</button>
+      </div>
+      <div class="p-6 modal-body prose">
+        <p>In the long, slow, tedious and meandering march of evolution of human consciousness, culture and civilization, over the millennia, it has been only on rare turning points that Avatar like multi-faceted geniuses with superhuman attributes have appeared on the human scene to raise human consciousness to a higher nobler plane. The Saint-Scholar-Philosopher Pandit Shriram Sharma Acharya, undoubtedly, belongs to this small rare group of divine vibhutis. Born on September 20, 1911 in a village Anwalkheda in Agra District, U.P., India, Acharyashri's whole life was devoted to Bhaghirath-like tapasya in clearing the way for the emergence of a new Era of universal peace, harmony and goodwill that could be linked with an era of descent of Heavens on the Earth..</p>
+
+        <p>Acharyashri (known as Gurudev by the disciples) scrupulously carried out the biddings of his divine Guru, a great Himalayan Yogi. When he was only fifteen years of age he endeavoured 24 Mahapurushcharans of Gayatri Maha-mantra; took part in the non-violent struggle for India's independence as a volunteer; went to jail a number of times as part of the freedom struggle, and embarked upon the task of social and moral upliftment through spiritual means with the blessings of Mahatma Gandhi.</p>
+
+        <p>A sage, a visionary, a social reformer, Acharyashri propounded 100 points Yug Nirman Yojna for social, intellectual and spiritual evolution. He lived a simple, disciplined life full of devout austerity, visited the Himalayas several times and attained spiritual eminence and foresight.</p>
+
+        <p>He translated the entire Vedic Vangmaya in lucid Hindi with eloquent comprehensive introductions and accomplished a feat of writing more than 2400 enlightening books in Hindi on all aspects of life. His writings encompass far-reaching, sagacious and feasible solutions to the innumerable problems of today. The Gayatri Pariwar fraternity, Shantikunj Ashram (the headquarters of Gayatri Pariwar), an academy for moral and spiritual awakening; Brahmavarchas Research Institute which strives to synthesize science with spirituality, Akhand Jyoti Sansthan, Mathura, Gayatri Tapobhumi, Mathura and thousands of social reform and sadhana centres (Shakti Peeths) around the globe are other grand contributions of Yugrishi Pandit Shriram Sharma Acharya to the modern world.</p>
+
+        <p>Millions of people in India and abroad have been fired kindled with missionary enthusiasm and zeal to transform their own lives and the society as a whole in the light of Yugrishi's messages. He voluntarily shed his physical sheath on Gayatri Jayanti, June 2,1990 but even after his physical departure from the scene, the Mission spread to global dimensions and 41 Ashwamedh Yagyas (32 in India, 9 abroad including U.K, U.S.A, Canada, Australia and South Africa ) were performed to carry forward the tasks initiated by the Yugrishi.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // generate gentle floating particles
+    (function createParticles(){
+      const container = document.getElementById('particles');
+      const count = 28;
+      for(let i=0;i<count;i++){
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random()*100 + '%';
+        p.style.top = Math.random()*100 + '%';
+        p.style.width = (2 + Math.random()*6) + 'px';
+        p.style.height = p.style.width;
+        p.style.animationDuration = (18 + Math.random()*12) + 's';
+        p.style.opacity = 0.2 + Math.random()*0.6;
+        container.appendChild(p);
+      }
+    })();
+
+    // Tabs
+    const tabs = {
+      about: document.querySelector('[data-tab="about"]'),
+      timeline: document.querySelector('[data-tab="timeline"]'),
+      gallery: document.querySelector('[data-tab="gallery"]'),
+    };
+    const title = document.getElementById('tabTitle');
+
+    function showTab(name){
+      Object.keys(tabs).forEach(k=>{
+        tabs[k].classList.add('hidden');
+        tabs[k].classList.remove('tab-enter-active');
+      });
+      const el = tabs[name];
+      el.classList.remove('hidden');
+      // entry animation
+      el.classList.add('tab-enter');
+      requestAnimationFrame(()=>{ el.classList.add('tab-enter-active'); el.classList.remove('tab-enter'); });
+      title.textContent = name === 'about' ? 'About Gurudev' : (name === 'timeline' ? 'Timeline' : 'Gallery');
+    }
+
+    document.getElementById('btnAbout').addEventListener('click', ()=> showTab('about'));
+    document.getElementById('btnTimeline').addEventListener('click', ()=> showTab('timeline'));
+    document.getElementById('btnGallery').addEventListener('click', ()=> showTab('gallery'));
+
+    // Modal
+    function openModal(){ document.getElementById('modal').classList.remove('hidden'); document.getElementById('modal').classList.add('flex'); }
+    function closeModal(){ document.getElementById('modal').classList.remove('flex'); document.getElementById('modal').classList.add('hidden'); }
+    document.getElementById('readMoreBtn').addEventListener('click', openModal);
+    document.getElementById('expandBtn').addEventListener('click', openModal);
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+
+    // Carousel
+    const track = document.getElementById('carouselTrack');
+    const items = Array.from(track.children);
+    const total = items.length;
+    let idx = 0;
+    function updateCarousel(){
+      track.style.transform = `translateX(-${idx*100}%)`;
+      updateIndicators();
+    }
+    document.getElementById('prev').addEventListener('click', ()=>{ idx = (idx-1+total)%total; updateCarousel(); });
+    document.getElementById('next').addEventListener('click', ()=>{ idx = (idx+1)%total; updateCarousel(); });
+
+    // indicators
+    const indicators = document.getElementById('indicators');
+    for(let i=0;i<total;i++){
+      const btn = document.createElement('div'); btn.className='w-3 h-3 rounded-full carousel-indicator'; btn.dataset.i=i; indicators.appendChild(btn);
+      btn.addEventListener('click', ()=>{ idx = i; updateCarousel(); });
+    }
+    function updateIndicators(){ Array.from(indicators.children).forEach((c,i)=> c.classList.toggle('active', i===idx)); }
+    updateIndicators();
+
+    // autoplay
+    let autoplay = null;
+    document.getElementById('playCarousel').addEventListener('click', ()=>{
+      if(autoplay){ clearInterval(autoplay); autoplay=null; document.getElementById('playCarousel').textContent='Play Gallery'; }
+      else { autoplay = setInterval(()=>{ idx=(idx+1)%total; updateCarousel(); }, 2800); document.getElementById('playCarousel').textContent='Pause Gallery'; }
+    });
+
+    // init
+    showTab('about');
+
+    // small CSS keyframes injection used earlier
+    const style = document.createElement('style');
+    style.innerHTML = `@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}} .animate-fade-in{animation:fadeIn .8s ease both} @keyframes scaleUp{from{transform:scale(.98);opacity:0}to{transform:scale(1);opacity:1}} .animate-scale-up{animation:scaleUp .32s ease both}`;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
